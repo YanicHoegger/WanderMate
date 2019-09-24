@@ -1,0 +1,17 @@
+﻿@inject IMap MapImplementation
+
+@CreateMap()
+
+@code {
+
+    private RenderFragment CreateMap() => builder =>
+    {
+        MapImplementation.Initialize(builder);
+    };
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        await MapImplementation.OnAfterRenderAsync(firstRender);
+    }
+
+}
